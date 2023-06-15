@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>use strict</title>
+</head>
+<body>
+<script>
+    "use strict";
+
+    function createGlobalVariables() {
+        // 没有声明从而制造了隐式全局变量leaking1
+        // leaking1 = 1000;
+
+        // 函数内部this指向window，制造了隐式全局变量leaking1
+        this.leaking2 = 2000;
+    }
+
+    createGlobalVariables()
+
+    console.log(window.leaking1) // 1000
+    console.log(window.leaking2) // 2000
+</script>
+<div>
+    <h3>严格模式（use strict）的限制</h3>
+    <p>不允许使用未声明的变量</p>
+    <p>不允许删除变量或对象</p>
+    <p>不允许删除函数</p>
+    <p>不允许变量重名</p>
+    <p>不允许使用八进制</p>
+    <p>不允许使用转义字符</p>
+    <p>不允许对只读属性赋值</p>
+    <p>不允许对一个使用getter方法读取的属性进行赋值</p>
+    <p>不允许删除一个不允许删除的属性</p>
+    <p>变量名不能使用 "eval" 字符串</p>
+    <p>变量名不能使用 "arguments" 字符串</p>
+    <p>不允许使用以下这种语句</p>
+    <p>由于一些安全原因，在作用域 eval() 创建的变量不能被调用</p>
+    <p>禁止this关键字指向全局对象</p>
+    <p>
+    <h4>保留的关键字</h4>
+    <ul>
+        <li>implements</li>
+        <li>interface</li>
+        <li>let</li>
+        <li>package</li>
+        <li>private</li>
+        <li>protected</li>
+        <li>public</li>
+        <li>static</li>
+        <li>yield</li>
+    </ul>
+</div>
+</body>
+</html>

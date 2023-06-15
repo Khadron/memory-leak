@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Demo</title>
+</head>
+<body>
+<h1>Demo</h1>
+<script>
+    // let addrs = {city: '北京', district: '海淀'};
+    // let student = {name: '小强', address: addrs}
+    // let myset = new Set([student])
+    //
+    // student = null
+    // console.log(myset)
+    let addrs = {city: '北京', district: '海淀'};
+    let student = {name: '小强', address: addrs}
+    let weakSet = new WeakSet([student])
+    // weakSet.add(student)
+
+    student = null
+
+    setInterval(() => {
+        console.log('===', weakSet)
+    }, 5000)
+
+</script>
+</body>
+</html>
